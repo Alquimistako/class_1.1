@@ -30,12 +30,21 @@ public class ControlSystem : MonoBehaviour
 	}
 		private void Move()
 		{
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
+		 float h = Input.GetAxis("Horizontal");
+		 float v = Input.GetAxis("Vertical");
 
-		rig.velocity = new Vector2(h, v) * movespeed;
+		 rig.velocity = new Vector2(h, v) * movespeed;
 
-		ani.SetBool(parRun, h != 0 || v != 0);
+		 ani.SetBool(parRun, h != 0 || v != 0);
+
+		 if(Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.LeftArrow))
+		{
+			transform.eulerAngles = new Vector3(0, 180, 0);
 		}
+		if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+		{
+			transform.eulerAngles = new Vector3(0, 0, 0);
+		}
+	}
 	}
 
