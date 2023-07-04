@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DamageBasic : MonoBehaviour
 {
     [Header("資料")]
     public Database data;
+	[Header("傷害值")]
+	public GameObject prefabDamage;
 
 	private float HP;
 
@@ -15,17 +16,20 @@ public class DamageBasic : MonoBehaviour
 	}
 	public void Damage(float damage)
 	{
-	  HP -= damage;
+		HP -= damage;
 
-	  print($"{gameObject.name} 血量剩下: {HP}");
+		print($"{gameObject.name} 血量剩下: {HP}");
 
-	  if (HP <= 0) Dead();
+		GameObject tempDamage = Instantiate(prefabDamage, transform.position, transform.rotation);
+		tempDamage.transform.Find("傷害值文字").GetComponent<TextMeshProUGUI>().text = damage.ToString();
+
+		if (HP <= 0) Dead();
+
+		Destroy(tempDamage ,1);
 	}
-    private void Dead()
+    protected virtual void Dead()
 	{
 	  print($"{gameObject.name} 死亡");
-
-	  
-
 	}
+
 }

@@ -10,6 +10,7 @@ public class WeaponSystem : MonoBehaviour
 	public GameObject prefabWeapon;
 	[Header("武器飛行")]
 	public Vector2 power;
+	int direction;
 
 	private Transform player;
 	private void SpawnWeapon()
@@ -18,7 +19,13 @@ public class WeaponSystem : MonoBehaviour
 
 		Rigidbody2D rigWeapon = temWeapon.GetComponent<Rigidbody2D>();
 
-		rigWeapon.AddForce(power);
+		direction=player.eulerAngles.y == 0 ? 1 : -1;
+
+		rigWeapon.AddForce(new Vector2(power.x,power.y*direction));
+
+		Destroy(temWeapon, 3);
+
+		
 	}
 
 	private void Awake()
@@ -26,6 +33,5 @@ public class WeaponSystem : MonoBehaviour
 		InvokeRepeating("SpawnWeapon", 0, interval);
 
 		player = GameObject.Find("企鵝").transform;
-
 	}
 }

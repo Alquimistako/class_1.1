@@ -41,7 +41,7 @@ public class ControlSystem : MonoBehaviour
 		{
 			transform.eulerAngles = new Vector3(0, 180, 0);
 		}
-		if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+		 if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
 		{
 			transform.eulerAngles = new Vector3(0, 0, 0);
 		}

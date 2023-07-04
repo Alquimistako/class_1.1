@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfb7a4c9920a29148a96267c9c17f286, type: 3}
-  m_Name: GreenPig
+  m_Script: {fileID: 11500000, guid: 982de642cda3c3641887f416fa02a0bf, type: 3}
+  m_Name: Green pig
   m_EditorClassIdentifier: 
-  HP: 600
+  HP: 200
   AP: 0
   SP: 0
+  expProbability: 1
+  prefabExp: {fileID: 3605675484892626976, guid: 80dda86f980f67448b20a33e0f5164a7, type: 3}
